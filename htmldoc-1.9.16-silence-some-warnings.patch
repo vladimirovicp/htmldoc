@@ -1,0 +1,29 @@
+diff --git a/htmldoc/htmldoc/http.h b/htmldoc/htmldoc/http.h
+index fc5983d..61e98f8 100644
+--- a/htmldoc/htmldoc/http.h
++++ b/htmldoc/htmldoc/http.h
+@@ -592,7 +592,7 @@ extern http_status_t	httpGetExpect(http_t *http) _CUPS_API_1_7;
+ extern ssize_t		httpPeek(http_t *http, char *buffer, size_t length) _CUPS_API_1_7;
+ extern http_state_t	httpReadRequest(http_t *http, char *resource, size_t resourcelen) _CUPS_API_1_7;
+ extern void		httpSetDefaultField(http_t *http, http_field_t field, const char *value) _CUPS_API_1_7;
+-extern http_state_t	httpWriteResponse(http_t *http, http_status_t status) _CUPS_API_1_7;
++extern int		httpWriteResponse(http_t *http, http_status_t status) _CUPS_API_1_7;
+ 
+ /* New in CUPS 2.0/macOS 10.10 */
+ extern int		httpAddrClose(http_addr_t *addr, int fd) _CUPS_API_2_0;
+diff --git a/htmldoc/htmldoc/mmd.c b/htmldoc/htmldoc/mmd.c
+index 016ef07..9bea587 100644
+--- a/htmldoc/htmldoc/mmd.c
++++ b/htmldoc/htmldoc/mmd.c
+@@ -205,7 +205,11 @@ mmdCopyAllText(mmd_t *node)		/* I - Parent node */
+ 	  return (NULL);
+ 	}
+ 
++#pragma GCC diagnostic push
++#pragma GCC diagnostic ignored "-Wuse-after-free"
+ 	allptr = temp + (allptr - all);
++#pragma GCC diagnostic pop
++
+ 	all    = temp;
+       }
+ 

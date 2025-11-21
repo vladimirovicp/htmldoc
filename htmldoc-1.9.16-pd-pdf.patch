@@ -1,0 +1,12 @@
+diff -uNrbBwp htmldoc-1.9.16/htmldoc/ps-pdf.cxx htmldoc-1.9.16-new/htmldoc/ps-pdf.cxx
+--- htmldoc-1.9.16/htmldoc/ps-pdf.cxx	2022-09-17 11:46:09.000000000 +0000
++++ htmldoc-1.9.16-new/htmldoc/ps-pdf.cxx	2022-09-17 12:16:03.805718972 +0000
+@@ -3466,7 +3466,7 @@ pdf_write_links(FILE *out)		/* I - Outpu
+ 	   /*
+             * Local link...
+             */
+-            if (link->page < num_pages)
++            if ( (unsigned int) link->page < num_pages)
+             {
+ 	      float x1, y1, x2, y2;
+ 
