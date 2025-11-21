@@ -1440,19 +1440,19 @@ GUI::newBook(void)
   formats[(int)'D'] = 16;
 
   fmt = get_fmt(Header);
-  pageHeaderLeft->value(formats[fmt[0]]);
-  pageHeaderCenter->value(formats[fmt[1]]);
-  pageHeaderRight->value(formats[fmt[2]]);
+  pageHeaderLeft->value(formats[(unsigned char)fmt[0]]);
+  pageHeaderCenter->value(formats[(unsigned char)fmt[1]]);
+  pageHeaderRight->value(formats[(unsigned char)fmt[2]]);
 
   fmt = get_fmt(Header1);
-  pageHeader1Left->value(formats[fmt[0]]);
-  pageHeader1Center->value(formats[fmt[1]]);
-  pageHeader1Right->value(formats[fmt[2]]);
+  pageHeader1Left->value(formats[(unsigned char)fmt[0]]);
+  pageHeader1Center->value(formats[(unsigned char)fmt[1]]);
+  pageHeader1Right->value(formats[(unsigned char)fmt[2]]);
 
   fmt = get_fmt(Footer);
-  pageFooterLeft->value(formats[fmt[0]]);
-  pageFooterCenter->value(formats[fmt[1]]);
-  pageFooterRight->value(formats[fmt[2]]);
+  pageFooterLeft->value(formats[(unsigned char)fmt[0]]);
+  pageFooterCenter->value(formats[(unsigned char)fmt[1]]);
+  pageFooterRight->value(formats[(unsigned char)fmt[2]]);
 
   if (NumberUp == 1)
     numberUp->value(0);
@@ -1471,14 +1471,14 @@ GUI::newBook(void)
   numberedToc->value(TocNumbers);
 
   fmt = get_fmt(TocHeader);
-  tocHeaderLeft->value(formats[fmt[0]]);
-  tocHeaderCenter->value(formats[fmt[1]]);
-  tocHeaderRight->value(formats[fmt[2]]);
+  tocHeaderLeft->value(formats[(unsigned char)fmt[0]]);
+  tocHeaderCenter->value(formats[(unsigned char)fmt[1]]);
+  tocHeaderRight->value(formats[(unsigned char)fmt[2]]);
 
   fmt = get_fmt(TocFooter);
-  tocFooterLeft->value(formats[fmt[0]]);
-  tocFooterCenter->value(formats[fmt[1]]);
-  tocFooterRight->value(formats[fmt[2]]);
+  tocFooterLeft->value(formats[(unsigned char)fmt[0]]);
+  tocFooterCenter->value(formats[(unsigned char)fmt[1]]);
+  tocFooterRight->value(formats[(unsigned char)fmt[2]]);
 
   tocTitle->value(TocTitle);
 
@@ -2087,21 +2087,21 @@ GUI::parseOptions(const char *line)	// I - Line from file
       pageBottom->value(temp2);
     else if (strcmp(temp, "--header") == 0)
     {
-      pageHeaderLeft->value(formats[temp2[0]]);
-      pageHeaderCenter->value(formats[temp2[1]]);
-      pageHeaderRight->value(formats[temp2[2]]);
+      pageHeaderLeft->value(formats[(unsigned char)temp2[0]]);
+      pageHeaderCenter->value(formats[(unsigned char)temp2[1]]);
+      pageHeaderRight->value(formats[(unsigned char)temp2[2]]);
     }
     else if (strcmp(temp, "--header1") == 0)
     {
-      pageHeader1Left->value(formats[temp2[0]]);
-      pageHeader1Center->value(formats[temp2[1]]);
-      pageHeader1Right->value(formats[temp2[2]]);
+      pageHeader1Left->value(formats[(unsigned char)temp2[0]]);
+      pageHeader1Center->value(formats[(unsigned char)temp2[1]]);
+      pageHeader1Right->value(formats[(unsigned char)temp2[2]]);
     }
     else if (strcmp(temp, "--footer") == 0)
     {
-      pageFooterLeft->value(formats[temp2[0]]);
-      pageFooterCenter->value(formats[temp2[1]]);
-      pageFooterRight->value(formats[temp2[2]]);
+      pageFooterLeft->value(formats[(unsigned char)temp2[0]]);
+      pageFooterCenter->value(formats[(unsigned char)temp2[1]]);
+      pageFooterRight->value(formats[(unsigned char)temp2[2]]);
     }
     else if (strcmp(temp, "--nup") == 0)
     {
@@ -2139,15 +2139,15 @@ GUI::parseOptions(const char *line)	// I - Line from file
       tocLevels->value(atoi(temp2));
     else if (strcmp(temp, "--tocheader") == 0)
     {
-      tocHeaderLeft->value(formats[temp2[0]]);
-      tocHeaderCenter->value(formats[temp2[1]]);
-      tocHeaderRight->value(formats[temp2[2]]);
+      tocHeaderLeft->value(formats[(unsigned char)temp2[0]]);
+      tocHeaderCenter->value(formats[(unsigned char)temp2[1]]);
+      tocHeaderRight->value(formats[(unsigned char)temp2[2]]);
     }
     else if (strcmp(temp, "--tocfooter") == 0)
     {
-      tocFooterLeft->value(formats[temp2[0]]);
-      tocFooterCenter->value(formats[temp2[1]]);
-      tocFooterRight->value(formats[temp2[2]]);
+      tocFooterLeft->value(formats[(unsigned char)temp2[0]]);
+      tocFooterCenter->value(formats[(unsigned char)temp2[1]]);
+      tocFooterRight->value(formats[(unsigned char)temp2[2]]);
     }
     else if (strcmp(temp, "--toctitle") == 0)
       tocTitle->value(temp2);

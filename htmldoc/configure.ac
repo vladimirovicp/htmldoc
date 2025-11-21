@@ -341,8 +341,6 @@ AS_IF([test -n "$GXX"], [
     ], [
 	# Otherwise use the Fortify enhancements to catch any unbounded
 	# string operations...
-	CFLAGS="$CFLAGS -D_FORTIFY_SOURCE=2"
-	CXXFLAGS="$CXXFLAGS -D_FORTIFY_SOURCE=2"
     ])
 
     dnl Set optimization flags...
